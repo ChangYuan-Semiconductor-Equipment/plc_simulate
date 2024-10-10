@@ -18,8 +18,7 @@ def operation_submit():
     if request.method == "POST":
         form_data = request.get_json()
         plc_ip = form_data.get("plc_ip")
-        path = r"D:\python_workspace\mes_web\external\inovance_tag_dll\TagAccessCS.dll"
-        tag_instance = TagCommunication(path, plc_ip)
+        tag_instance = TagCommunication(plc_ip)
         tag_instance.communication_open()
         tag_name = form_data.get("tag_name")
         operation_type = form_data.get("operation_type")
